@@ -14,7 +14,10 @@ public class ProdutoService {
 	@Autowired
 	public ProdutoRepository produtoRepository;
 
-	public List<Produto> listAll() {
+	public List<Produto> listAll(String palavraChave) {
+		if(palavraChave != null) {
+			return produtoRepository.findAll(palavraChave);
+		}
 		return produtoRepository.findAll();
 	}
 
